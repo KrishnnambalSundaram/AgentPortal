@@ -7,21 +7,22 @@ const agents = [
     name: 'Invoice Extractor',
     description: 'Extracts key information from invoices and provides a summary with insights.',
     icon: '🧾',
-    link: 'http://your-invoice-extractor-link.com',
+    link: 'http://invoiceextractor.inflectotechnologies.com
+',
   },
   {
     id: 2,
     name: 'Invox Analyzer',
     description: 'Analyzes invoices and highlights anomalies and trends for smarter finance decisions.',
     icon: '📊',
-    link: 'http://your-invox-analyzer-link.com',
+    link: 'http://invoxanalyser.inflectotechnologies.com',
   },
   {
     id: 3,
     name: 'SmartBot',
     description: 'Instantly answers your company policy-related queries in a conversational style.',
     icon: '🧠',
-    link: 'http://your-smartbot-link.com',
+    link: 'http://smartbot.inflectotechnologies.com',
   },
 ];
 
