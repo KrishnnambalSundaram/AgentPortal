@@ -7,8 +7,7 @@ const agents = [
     name: 'Invoice Extractor',
     description: 'Extracts key information from invoices and provides a summary with insights.',
     icon: '🧾',
-    link: 'http://invoiceextractor.inflectotechnologies.com
-',
+    link: 'http://invoiceextractor.inflectotechnologies.com',
   },
   {
     id: 2,
