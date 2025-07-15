@@ -1,0 +1,45 @@
+.header, .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #E46356; /* Inflecto red */
+  color: white;
+  font-weight: bold;
+}
+
+.container {
+  padding: 30px;
+}
+
+.agent-card {
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+}
+
+.agent-card h2 {
+  color: #4B371C;
+  margin: 0 0 10px;
+}
+
+.agent-card p {
+  margin-bottom: 10px;
+}
+
+.agent-card a {
+  color: #70CBCF;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #4B371C;
+  color: #fff;
+  text-align: center;
+  flex-direction: column;
+  padding: 30px;
+  font-size: 14px;
+}
