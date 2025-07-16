@@ -43,3 +43,53 @@
   padding: 30px;
   font-size: 14px;
 }
+
+.header-logo {
+  height: 50px;
+  width: auto;
+  max-width: 200px;
+  max-height: 40px;
+  object-fit: contain;
+  display: block;
+  overflow: hidden;
+}
+
+.inflecto-button {
+  background-color: white;
+  color: #E46356;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: 'Baloo Thambi 2', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.inflecto-button:hover {
+  background-color: #fff1ef;
+}
+
+.logo-wrapper {
+  max-height: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #E46356; /* Inflecto red */
+  color: white;
+  font-weight: bold;
+  overflow: hidden;
+  max-height: 80px;
+}

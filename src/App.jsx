@@ -18,22 +18,46 @@ const agents = [
   },
   {
     id: 3,
-    name: 'SmartBot',
+    name: 'Chat',
     description: 'Instantly answers your company policy-related queries in a conversational style.',
     icon: '🧠',
-    link: 'http://smartbot.inflectotechnologies.com',
+    link: 'https://chat.inflectotechnologies.com/',
   },
 ];
 
 function App() {
   return (
     <div className="app-wrapper">
-<header className="header">
+{/* <header className="header">
   <div className="header-logo">
     <img src="https://axxeltechnologies.com/wp-content/uploads/2025/04/Untitled-design1.png" alt="Inflecto Logo" />
   </div>
   <div className="header-title">Agents Portal</div>
+</header> */}
+
+<header className="header"> 
+<div className="header-left">
+  <div className="logo-wrapper">
+  <div className="header-logo">
+    <img
+      src="/logo.png"
+      alt="Chat Logo"
+    />
+  </div>
+</div>
+</div>
+  <div className="header-right">
+    <a
+      href="https://axxeltechnologies.com/inflecto"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inflecto-button"
+    >
+      Visit Inflecto
+    </a>
+  </div>
 </header>
+
 
       <main>
   <h1 className="portal-title">EXPLORE OUR AI AGENTS</h1>
