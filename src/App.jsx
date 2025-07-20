@@ -11,8 +11,8 @@ const agents = [
   },
   {
     id: 2,
-    name: 'Invox Analyzer',
-    description: 'Analyzes invoices and highlights anomalies and trends for smarter finance decisions.',
+    name: 'ClauseGuard',
+    description: 'Analyzes contracts to highlight risky clauses and provide a clear risk score with actionable insights.',
     icon: '📊',
     link: 'http://invoxanalyser.inflectotechnologies.com',
   },
