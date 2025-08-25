@@ -61,7 +61,7 @@ const agents = [
     icon: '📈',
     techStack: 'UnifyApps, OpenAI GPT-4',
     capability: 'Agentic AI captures user intent, qualifies leads based on contextual input, updates CRM, and schedules meetings—all automated.',
-    link: 'https://uat.unifyapps.com/p/0/copilot?agentId=e_6878d7149c9ea95a603ed112&b_GPiry-chatId=new',
+    link: 'https://uat.unifyapps.com/p/0/interfaces/inflectoleadassistant/preview/homepage?b_Tl5Vv-chatId=new',
   },
   {
     id: 5,
@@ -83,12 +83,12 @@ const agents = [
   },
   {
     id: 7,
-    name: 'Intelligent Refund Processing',
-    description: 'Email-triggered automation for refund validation and routing.',
+    name: 'Intelligent Travel Concierge Assistant',
+    description: 'Your digital travel partner, delivering real-time flight updates, curated hotels, personalized itineraries, and the latest destination news—all in one seamless, conversational experience',
     icon: '💸',
-    techStack: 'UnifyApps, OpenAI',
-    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant keywords; validates and routes based on context.',
-    link: 'Coming Soon!',
+    techStack: 'Python, Rest API, GenAI',
+    capability: 'Your digital travel partner, delivering real-time flight updates, curated hotels, personalized itineraries, and the latest destination news—all in one seamless, conversational experience',
+    link: 'https://travelconciergeassistant.inflectotechnologies.com/',
   },
   {
     id: 8,
