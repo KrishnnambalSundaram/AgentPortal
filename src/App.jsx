@@ -84,10 +84,10 @@ const agents = [
   {
     id: 7,
     name: 'Intelligent Travel Concierge Assistant',
-    description: 'Your digital travel partner, delivering real-time flight updates, curated hotels, personalized itineraries, and the latest destination news—all in one seamless, conversational experience',
+    description: 'Your digital travel partner: Real-time flights, curated hotels & itineraries, Latest news in one seamless conversation',
     icon: '💸',
     techStack: 'Python, Rest API, GenAI',
-    capability: 'Your digital travel partner, delivering real-time flight updates, curated hotels, personalized itineraries, and the latest destination news—all in one seamless, conversational experience',
+    capability: 'Your digital travel partner: Real-time flights, curated hotels & itineraries, Latest news in one seamless conversation',
     link: 'https://travelconciergeassistant.inflectotechnologies.com/',
   },
   {
