@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import InflectoExplore from '../assets/inflecto-explore.svg'
 import HeroBackground from '../assets/hero-background.svg'
 import InfoCard from './cards/InfoCard';
@@ -38,7 +38,7 @@ const agents = [
     description: 'Analyzes lead quality using interactive Q&A and schedules meetings.',
     icon: '📈',
     techStack: 'UnifyApps, OpenAI GPT-4',
-    capability: 'Agentic AI captures user intent, qualifies leads based on contextual input, updates CRM, and schedules meetings—all automated.',
+    capability: 'Agentic AI captures user intent, qualifies leads based on contextual GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant  input, updates CRM, and schedules meetings—all automated.',
     link: 'https://uat.unifyapps.com/p/0/copilot?agentId=e_6878d7149c9ea95a603ed112&b_GPiry-chatId=new',
   },
   {
@@ -47,7 +47,7 @@ const agents = [
     description: 'OutSystems app to book, view, and manage patient appointments.',
     icon: '🩺',
     techStack: 'OutSystems',
-    capability: 'A responsive web app for booking appointments and managing visit history, offering streamlined care through low-code automation.',
+    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant A responsive web app for booking appointments and managing visit history, offering streamlined care through low-code automation.',
     link: 'https://krishnnambal-sundaram.outsystemscloud.com/PatientPortal/',
   },
   {
@@ -65,7 +65,7 @@ const agents = [
     description: 'Email-triggered automation for refund validation and routing.',
     icon: '💸',
     techStack: 'UnifyApps, OpenAI',
-    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant keywords; validates and routes based on context.',
+    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant keywords; validates and routes based on context.GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant ',
     link: '',
   },
   {
@@ -77,17 +77,18 @@ const agents = [
     capability: 'Agentic AI analyzes responses to qualify leads, stores data, and sends meeting invites—all in one seamless Python-based flow.',
     link: '',
   },
-  {
-    id: 9,
-    name: 'Intelligent Travel Concierge Assistant',
-    description: 'Python-based agent to qualify leads and book meetings intelligently.',
-    icon: '🤖',
-    techStack: 'Python, NLU, GenAI,  API Integrations',
-    capability: 'The Intelligent Travel Concierge Assistant is an AI-powered travel companion that helps users plan and manage trips with minimal effort. It can generate detailed itineraries, fetch live flight and hotel information, provide destination insights, and even email travel plans directly to the user.',
-    link: '',
-  }
+  // {
+  //   id: 9,
+  //   name: 'Intelligent Travel Concierge Assistant',
+  //   description: 'Python-based agent to qualify leads and book meetings intelligently.',
+  //   icon: '🤖',
+  //   techStack: 'Python, NLU, GenAI,  API Integrations',
+  //   capability: 'The Intelligent Travel Concierge Assistant is an AI-powered travel companion that helps users plan and manage trips with minimal effort. It can generate detailed itineraries, fetch live flight and hotel information, provide destination insights, and even email travel plans directly to the user.',
+  //   link: '',
+  // }
 ];
 const Body = () => {
+  const [expandedCard, setExpandedCard] = useState(null);
   const scrollToAgents = () => {
     document.getElementById("ai-agents-section").scrollIntoView({
       behavior: "smooth",
@@ -114,10 +115,10 @@ const Body = () => {
 
         {/* Centered Content */}
         <div className="flex flex-col justify-center items-center space-y-6 max-w-2xl sm:max-w-6xl">
-          <h1 className="text-3xl sm:text-5xl md:text-7xl font-bold select-none text-black">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl manrope-bold select-none text-black">
             Your Gateway To <span className="text-[#70CBCF]">Agentic AI</span>
           </h1>
-          <p className="text-[#333333] text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl select-none">
+          <p className="text-[#565656] text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl outfit-regular select-none">
             {`Access, explore, and collaborate with powerful AI agents designed for different needs`}
           </p>
 
@@ -131,7 +132,7 @@ const Body = () => {
                 alt="Logo"
                 className="h-6 w-6 z-10 select-none"
               />
-              <span className="text-black select-none">Explore Agents</span>
+              <span className="text-black select-none outfit-medium">Explore Agents</span>
             </div>
           </div>
         </div>
@@ -140,16 +141,23 @@ const Body = () => {
       {/* AI Agents Section */}
       <section
         id="ai-agents-section"
-        className="flex flex-col items-center px-4 md:px-8 py-16 sm:h-350 lg:h-250"
+        className="flex flex-col items-center px-4 md:px-8 py-16 h-auto md:h-auto lg:h-auto pb-30"
       >
-        <h2 className="text-2xl md:text-4xl font-bold mt-4 mb-8 text-center text-[#4B371C]">
+        <h2 className="text-2xl md:text-4xl manrope-bold mt-4 mb-8 text-center text-[#4B371C]">
           EXPLORE OUR AI AGENTS
         </h2>
 
         <div className="grid relative gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:w-[95%] xl:w-[90%] w-full h-auto">
           {agents.map((agent,index) => (
             <div key={agent.id} className="flex relative justify-center">
-              <AgentCard agent={agent} cardIndex={index}/>
+              <AgentCard
+                agent={agent}
+                cardIndex={index}
+                expanded={expandedCard === agent.id}
+                onExpand={() =>
+                  setExpandedCard(expandedCard === agent.id ? null : agent.id)
+                }
+              />
             </div>
           ))}
 

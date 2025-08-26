@@ -17,7 +17,7 @@ const Footer = () => {
         />
 
         {/* Address */}
-        <div className="text-center md:text-left text-sm md:text-base leading-relaxed max-w-xl">
+        <div className="text-center md:text-left text-sm md:text-base leading-relaxed outfit-regular max-w-xl">
           <p className="block mb-2 text-center">INFLECTO TECHNOLOGIES</p>
           Ernst & Wales Business Center, Fronds Building, M floor (Above QMotors) <br />
           Sheikh Zayed Road, Close to Equity metro, Industrial Area 3, Dubai, UAE
@@ -51,8 +51,8 @@ const Footer = () => {
           </a>
         </div>
       </div>
-      <div className="absolute flex items-center justify-center  w-full bottom-15 text-white py-4 text-sm">
-        <p className="text-center">© 2025 Inflecto Technologies. All Rights Reserved.</p>
+      <div className="absolute flex items-center justify-center  w-full bottom-15 text-white pt-8 text-sm">
+        <p className="text-center outfit-regular">© 2025 Inflecto Technologies. All Rights Reserved.</p>
       </div>
       {/* Waves */}
       <img src={FooterBackground} alt='footer' className="w-full "/>

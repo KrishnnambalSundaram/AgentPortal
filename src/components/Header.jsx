@@ -25,7 +25,7 @@ const Header = () => {
              bg-gradient-to-r from-white/40 via-white/20 to-white/40 
              backdrop-blur-[40px] 
              transition-all duration-300 ease-in-out
-             ${isScrolled ? `top-1.5 md:py-2 py-1 shadow-lg` : "top-7 md:py-3 py-1 shadow-sm"}`}
+             ${isScrolled ? `top-1.5 md:py-2 py-1 shadow-lg` : "top-7 md:py-2.5 py-1 shadow-sm"}`}
     >
       {/* Logo */}
       <div className="flex items-center h-full max-w-[200px]">
@@ -33,7 +33,7 @@ const Header = () => {
           src={InflectoLogo}
           alt="Inflecto Logo"
           className={`object-contain ${
-            isScrolled ? "md:h-12 h-10" : "md:h-14 h-12"
+            isScrolled ? "md:h-12 h-11" : "md:h-14 h-12"
           } transition-all duration-300 ease-in-out`}
         />
       </div>
@@ -44,13 +44,13 @@ const Header = () => {
           href="https://axxeltechnologies.com/inflecto"
           target="_blank"
           rel="noopener noreferrer"
-          className={`flex flex-row items-center text-gray-800 bg-white/60 rounded-xl border border-[#737373]/30 ${
+          className={`flex flex-row items-center text-[#565656] outfit-medium bg-white/60 rounded-xl border border-[#737373]/30 ${
             isScrolled
-              ? "py-3.5 px-4 md:text-sm text-sm"
-              : "py-5 px-4 md:text-xl text-md"
+              ? "py-2.5 px-4 md:text-sm text-sm"
+              : "py-3 px-4 md:text-lg text-md"
           } transition-all duration-300 ease-in-out gap-2`}
         >
-          <IoIosGlobe size={24}/>Visit Our Website
+          <IoIosGlobe size={23}/>Visit Our Website
         </a>
       </nav>
 
@@ -71,10 +71,10 @@ const Header = () => {
             exit={{ clipPath: "circle(0% at 90% 0%)" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
             className="absolute right-0 w-8/12 top-full mt-2
-                      bg-white/50 backdrop-blur-[60px] 
+                      bg-white backdrop-blur-[60px] 
                       shadow-lg z-50
                       flex justify-center items-start
-                      border-2 border-white/30 md:hidden
+                      border-2 border-white md:hidden
                       rounded-2xl"
           >
             <motion.div
@@ -88,7 +88,7 @@ const Header = () => {
                 href="https://axxeltechnologies.com/inflecto"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-md font-semibold text-gray-800 hover:text-black transition"
+                className="text-sm outfit-medium text-gray-800 hover:text-black transition"
               >
                 🌐 Visit Our Website
               </a>
