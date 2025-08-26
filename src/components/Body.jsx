@@ -116,8 +116,19 @@ const Body = () => {
         {/* Centered Content */}
         <div className="flex flex-col justify-center items-center space-y-6 max-w-2xl sm:max-w-6xl">
           <h1 className="text-3xl sm:text-5xl md:text-7xl manrope-bold select-none text-black">
-            Your Gateway To <span className="text-[#70CBCF]">Agentic AI</span>
+            Your Gateway To{" "}
+            <span
+              className=" 
+            bg-clip-text text-[#70CBCF] 
+            [text-shadow:1px_1px_2px_rgba(0,0,0,0.25)] 
+            [webkit-text-stroke:1px_black]
+  "
+            >
+              Agentic AI
+            </span>
+
           </h1>
+
           <p className="text-[#565656] text-base sm:text-lg md:text-xl max-w-xl sm:max-w-2xl outfit-regular select-none">
             {`Access, explore, and collaborate with powerful AI agents designed for different needs`}
           </p>
