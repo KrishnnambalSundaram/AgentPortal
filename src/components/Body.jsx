@@ -1,92 +1,94 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InflectoExplore from '../assets/inflecto-explore.svg'
 import HeroBackground from '../assets/hero-background.svg'
 import InfoCard from './cards/InfoCard';
 import AgentCard from './cards/AgentCard';
+import axios from 'axios';
+import { getAgents } from '../services/AgentApi';
 // import imagebg from '../assets/background.jpg'
-const agents = [
-  {
-    id: 1,
-    name: 'Invoice Extractor',
-    description: 'Extracts key invoice data and auto-updates Google Sheets using OCR and GenAI.',
-    icon: '🧾',
-    techStack: 'Python, OpenAI, Google Sheets API, Google Sheets API, Google Sheets API',
-    capability: 'Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets.',
-    link: 'http://invoiceextractor.inflectotechnologies.com',
-  },
-  {
-    id: 2,
-    name: 'Clause Guard',
-    description: 'Highlights risky clauses and enables GenAI-based contract Q&A.',
-    icon: '📄',
-    techStack: 'Python, OpenAI',
-    capability: 'Agentic AI detects risky clauses, summarizes risks, and allows GenAI-powered natural language Q&A on contract content Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets.',
-    link: 'http://invoxanalyser.inflectotechnologies.com',
-  },
-  {
-    id: 3,
-    name: 'HR Policy Assistant',
-    description: 'Answers questions strictly related to HR policies using domain-tuned GenAI.',
-    icon: '🧠',
-    techStack: 'Python, OpenAI',
-    capability: 'Built with domain-aligned GenAI, this agent answers HR-specific questions while rejecting unrelated ones, ensuring high precision.',
-    link: 'https://chat.inflectotechnologies.com/',
-  },
-  {
-    id: 4,
-    name: 'Lead Qualifier (UnifyApps)',
-    description: 'Analyzes lead quality using interactive Q&A and schedules meetings.',
-    icon: '📈',
-    techStack: 'UnifyApps, OpenAI GPT-4',
-    capability: 'Agentic AI captures user intent, qualifies leads based on contextual GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant  input, updates CRM, and schedules meetings—all automated.',
-    link: 'https://uat.unifyapps.com/p/0/copilot?agentId=e_6878d7149c9ea95a603ed112&b_GPiry-chatId=new',
-  },
-  {
-    id: 5,
-    name: 'Patient Management System',
-    description: 'OutSystems app to book, view, and manage patient appointments.',
-    icon: '🩺',
-    techStack: 'OutSystems',
-    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant A responsive web app for booking appointments and managing visit history, offering streamlined care through low-code automation.',
-    link: 'https://krishnnambal-sundaram.outsystemscloud.com/PatientPortal/',
-  },
-  {
-    id: 6,
-    name: 'Home Insurance Portal',
-    description: 'Interactive OutSystems portal for insurance quotes and payments.',
-    icon: '🏠',
-    techStack: 'OutSystems',
-    capability: 'Captivating UI with embedded workflows to generate quotes, collect payments, and drive digital engagement through low-code experience design.',
-    link: 'https://krishnnambal-sundaram.outsystemscloud.com/HomeInsurancePortal/',
-  },
-  {
-    id: 7,
-    name: 'Intelligent Refund Processing',
-    description: 'Email-triggered automation for refund validation and routing.',
-    icon: '💸',
-    techStack: 'UnifyApps, OpenAI',
-    capability: 'GenAI and workflow automation trigger refund processing when email contains relevant keywords; validates and routes based on context.GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant ',
-    link: '',
-  },
-  {
-    id: 8,
-    name: 'Lead Qualifier (Python)',
-    description: 'Python-based agent to qualify leads and book meetings intelligently.',
-    icon: '🤖',
-    techStack: 'Python, OpenAI',
-    capability: 'Agentic AI analyzes responses to qualify leads, stores data, and sends meeting invites—all in one seamless Python-based flow.',
-    link: '',
-  },
-  // {
-  //   id: 9,
-  //   name: 'Intelligent Travel Concierge Assistant',
-  //   description: 'Python-based agent to qualify leads and book meetings intelligently.',
-  //   icon: '🤖',
-  //   techStack: 'Python, NLU, GenAI,  API Integrations',
-  //   capability: 'The Intelligent Travel Concierge Assistant is an AI-powered travel companion that helps users plan and manage trips with minimal effort. It can generate detailed itineraries, fetch live flight and hotel information, provide destination insights, and even email travel plans directly to the user.',
-  //   link: '',
-  // }
-];
+// const agents = [
+//   {
+//     id: 1,
+//     name: 'Invoice Extractor',
+//     description: 'Extracts key invoice data and auto-updates Google Sheets using OCR and GenAI.',
+//     icon: '🧾',
+//     techStack: 'Python, OpenAI, Google Sheets API, Google Sheets API, Google Sheets API',
+//     capability: 'Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets.',
+//     link: 'http://invoiceextractor.inflectotechnologies.com',
+//   },
+//   {
+//     id: 2,
+//     name: 'Clause Guard',
+//     description: 'Highlights risky clauses and enables GenAI-based contract Q&A.',
+//     icon: '📄',
+//     techStack: 'Python, OpenAI',
+//     capability: 'Agentic AI detects risky clauses, summarizes risks, and allows GenAI-powered natural language Q&A on contract content Leverages GenAI and OCR to identify invoice number, date, and amount; validates entries and auto-logs to Google Sheets.',
+//     link: 'http://invoxanalyser.inflectotechnologies.com',
+//   },
+//   {
+//     id: 3,
+//     name: 'HR Policy Assistant',
+//     description: 'Answers questions strictly related to HR policies using domain-tuned GenAI.',
+//     icon: '🧠',
+//     techStack: 'Python, OpenAI',
+//     capability: 'Built with domain-aligned GenAI, this agent answers HR-specific questions while rejecting unrelated ones, ensuring high precision.',
+//     link: 'https://chat.inflectotechnologies.com/',
+//   },
+//   {
+//     id: 4,
+//     name: 'Lead Qualifier (UnifyApps)',
+//     description: 'Analyzes lead quality using interactive Q&A and schedules meetings.',
+//     icon: '📈',
+//     techStack: 'UnifyApps, OpenAI GPT-4',
+//     capability: 'Agentic AI captures user intent, qualifies leads based on contextual GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant  input, updates CRM, and schedules meetings—all automated.',
+//     link: 'https://uat.unifyapps.com/p/0/copilot?agentId=e_6878d7149c9ea95a603ed112&b_GPiry-chatId=new',
+//   },
+//   {
+//     id: 5,
+//     name: 'Patient Management System',
+//     description: 'OutSystems app to book, view, and manage patient appointments.',
+//     icon: '🩺',
+//     techStack: 'OutSystems',
+//     capability: 'GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant A responsive web app for booking appointments and managing visit history, offering streamlined care through low-code automation.',
+//     link: 'https://krishnnambal-sundaram.outsystemscloud.com/PatientPortal/',
+//   },
+//   {
+//     id: 6,
+//     name: 'Home Insurance Portal',
+//     description: 'Interactive OutSystems portal for insurance quotes and payments.',
+//     icon: '🏠',
+//     techStack: 'OutSystems',
+//     capability: 'Captivating UI with embedded workflows to generate quotes, collect payments, and drive digital engagement through low-code experience design.',
+//     link: 'https://krishnnambal-sundaram.outsystemscloud.com/HomeInsurancePortal/',
+//   },
+//   {
+//     id: 7,
+//     name: 'Intelligent Refund Processing',
+//     description: 'Email-triggered automation for refund validation and routing.',
+//     icon: '💸',
+//     techStack: 'UnifyApps, OpenAI',
+//     capability: 'GenAI and workflow automation trigger refund processing when email contains relevant keywords; validates and routes based on context.GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant GenAI and workflow automation trigger refund processing when email contains relevant ',
+//     link: '',
+//   },
+//   {
+//     id: 8,
+//     name: 'Lead Qualifier (Python)',
+//     description: 'Python-based agent to qualify leads and book meetings intelligently.',
+//     icon: '🤖',
+//     techStack: 'Python, OpenAI',
+//     capability: 'Agentic AI analyzes responses to qualify leads, stores data, and sends meeting invites—all in one seamless Python-based flow.',
+//     link: '',
+//   },
+//   {
+//     id: 9,
+//     name: 'Intelligent Travel Concierge Assistant',
+//     description: 'Python-based agent to qualify leads and book meetings intelligently.',
+//     icon: '🤖',
+//     techStack: 'Python, NLU, GenAI,  API Integrations',
+//     capability: 'The Intelligent Travel Concierge Assistant is an AI-powered travel companion that helps users plan and manage trips with minimal effort. It can generate detailed itineraries, fetch live flight and hotel information, provide destination insights, and even email travel plans directly to the user.',
+//     link: '',
+//   }
+// ];
 const Body = () => {
   const [expandedCard, setExpandedCard] = useState(null);
   const scrollToAgents = () => {
@@ -94,6 +96,20 @@ const Body = () => {
       behavior: "smooth",
     });
   };
+  const [agents, setAgents] = useState([]);
+
+  useEffect(() => {
+   async function getAgentsData() {
+    try {
+      const data = await getAgents();
+      setAgents(data.data)
+      console.log(data.data)
+    } catch (e) {
+      console.error("Error fetching agents:", e.message);
+    }
+  }
+  getAgentsData();
+  }, []);
 
   return (
     <main className="flex flex-col items-center  justify-center w-full relative">
@@ -158,7 +174,7 @@ const Body = () => {
           EXPLORE OUR AI AGENTS
         </h2>
 
-        <div className="grid relative gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 lg:w-[95%] xl:w-[90%] w-full h-auto">
+        <div className="grid relative gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 auto-rows-fr">
           {agents.map((agent,index) => (
             <div key={agent.id} className="flex relative justify-center">
               <AgentCard

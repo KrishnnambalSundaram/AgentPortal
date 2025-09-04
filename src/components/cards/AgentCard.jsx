@@ -54,7 +54,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
           expanded ? "flex-wrap" : "overflow-hidden whitespace-nowrap"
         } transition-all duration-400 ease-in-out`}
       >
-        {agent.techStack.split(",").map((item, index) => {
+        {agent.tech_stack.map((item, index) => {
           const color =
             COLORS[(cardIndex + index) % COLORS.length] || COLORS[0];
           const textColor =
@@ -73,7 +73,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
       </div>
 
       {/* Description */}
-      <div className="">
+      <div className="min-h-16">
         <p
           ref={descRef}
           className={`mt-2 text-sm text-[#565656] outfit-regular ${
@@ -89,7 +89,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
               e.stopPropagation();
               onExpand()
             }}
-            className="absolute my-1 text-[#C94D40] text-xs outfit-regular"
+            className="absolute mb-1 text-[#C94D40] text-xs outfit-regular"
           >
             Read more
           </button>
@@ -109,10 +109,10 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
       </div>
 
       {/* Bottom Button */}
-      <div className={`${isTruncated?"mt-6":"mt-6"}`}>
+      <div className={` ${isTruncated?"mt-6":"mt-6"}`}>
         <div
           className={`w-full rounded-2xl p-[1px] ${
-            agent.link === ""
+            agent.url === ""
               ? "bg-[#F2F2F2]"
               : `hover:scale-102 ${
                   hovered
@@ -122,11 +122,11 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
           }`}
         >
           <a
-            href={agent.link === "" ? "" : agent.link}
+            href={agent.url === "" ? "" : agent.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
-              agent.link === ""
+              agent.url === ""
                 ? "pointer-events-none text-[#333333]"
                 : "text-[#4B371C]"
             } text-center`}
@@ -136,7 +136,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
               color={hovered ? "black" : "#4B371C"}
               className="mr-2"
             />{" "}
-            {agent.link === "" ? "Coming Soon" : "Explore Agent"}
+            {agent.url === "" ? "Coming Soon" : "Explore Agent"}
           </a>
         </div>
       </div>
