@@ -29,15 +29,15 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
                   ${
                     expanded
                       ? "md:absolute z-50 max-h-[1000px] transition-all duration-1500 ease-in-out"
-                      : "relative z-0 max-h-[225px] transition-all duration-1000 ease-in-out"
+                      : "relative z-0 max-h-[225px] transition-all duration-300 ease-in-out"
                   } 
-                  transition-all duration-400 ease-in-out overflow-hidden hover:scale-103 transform`}
-      style={{
-        backgroundImage: `url(${Frame})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "right top",
-        backgroundSize: "150px 150px",
-      }}
+                  transition-all duration-300 ease-in-out overflow-hidden hover:scale-103 transform`}
+      // style={{
+      //   backgroundImage: `url(${Frame})`,
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundPosition: "right top",
+      //   backgroundSize: "150px 150px",
+      // }}
     >
       {/* Title */}
       <h2
@@ -112,7 +112,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
       <div className={` ${isTruncated?"mt-6":"mt-6"}`}>
         <div
           className={`w-full rounded-2xl p-[1px] ${
-            agent.url === ""
+            agent.url === null
               ? "bg-[#F2F2F2]"
               : `hover:scale-102 ${
                   hovered
@@ -122,11 +122,11 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
           }`}
         >
           <a
-            href={agent.url === "" ? "" : agent.url}
+            href={agent.url === null ? "" : agent.url}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
-              agent.url === ""
+              agent.url === null
                 ? "pointer-events-none text-[#333333]"
                 : "text-[#4B371C]"
             } text-center`}
@@ -136,7 +136,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
               color={hovered ? "black" : "#4B371C"}
               className="mr-2"
             />{" "}
-            {agent.url === "" ? "Coming Soon" : "Explore Agent"}
+            {agent.url === null ? "Coming Soon" : "Explore Agent"}
           </a>
         </div>
       </div>

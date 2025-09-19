@@ -102,8 +102,9 @@ const Body = () => {
    async function getAgentsData() {
     try {
       const data = await getAgents();
-      setAgents(data.data)
-      console.log(data.data)
+      const sortedData = data.data.sort((a,b)=>a.id-b.id)
+      setAgents(sortedData)
+      console.log(sortedData)
     } catch (e) {
       console.error("Error fetching agents:", e.message);
     }
@@ -175,7 +176,15 @@ const Body = () => {
         </h2>
 
         <div className="grid relative gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 auto-rows-fr">
-          {agents.map((agent,index) => (
+          {
+          (!agents || agents.length === 0)
+            ? Array(9).fill(null).map((_, index) => (
+                <div
+                  key={index}
+                  className="h-[225px] w-sm rounded-lg bg-neutral-200 animate-pulse"
+                />
+              )):
+          agents.map((agent,index) => (
             <div key={agent.id} className="flex relative justify-center">
               <AgentCard
                 agent={agent}
