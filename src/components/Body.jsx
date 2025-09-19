@@ -169,7 +169,7 @@ const Body = () => {
       {/* AI Agents Section */}
       <section
         id="ai-agents-section"
-        className="flex flex-col items-center px-4 md:px-8 py-16 h-auto md:h-auto lg:h-auto pb-30"
+        className="flex flex-col items-center px-4 md:px-8 py-16 min-h-[550px] w-full pb-30 transition-all ease-in-out duration-300"
       >
         <h2 className="text-2xl md:text-4xl manrope-bold mt-4 mb-8 text-center text-[#4B371C]">
           EXPLORE OUR AI AGENTS

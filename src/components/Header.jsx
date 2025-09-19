@@ -41,7 +41,7 @@ const Header = () => {
       {/* Desktop Nav */}
       <nav className="hidden md:block">
         <a
-          href="https://axxeltechnologies.com/inflecto"
+          href="https://inflectotechnologies.com/"
           target="_blank"
           rel="noopener noreferrer"
           className={`flex flex-row items-center text-[#565656] outfit-medium bg-white/60 rounded-xl border border-[#737373]/30 ${
@@ -85,7 +85,7 @@ const Header = () => {
               className="flex flex-col gap-6 text-center py-6"
             >
               <a
-                href="https://axxeltechnologies.com/inflecto"
+                href="https://inflectotechnologies.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm outfit-medium text-gray-800 hover:text-black transition"

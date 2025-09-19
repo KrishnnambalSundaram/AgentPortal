@@ -25,7 +25,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
       onMouseLeave={() => {
         setHovered(false);
       }}
-      className={`w-full max-w-sm overflow-hidden rounded-[20px] shadow-lg border border-[#C7C7C7] p-4 bg-white cursor-pointer
+      className={`w-sm overflow-hidden rounded-[20px] shadow-lg border border-[#C7C7C7] p-4 bg-white cursor-pointer
                   ${
                     expanded
                       ? "md:absolute z-50 max-h-[1000px] transition-all duration-1500 ease-in-out"
