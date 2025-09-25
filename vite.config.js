@@ -13,5 +13,8 @@ export default defineConfig({
         secure: false,
       },
     },
+    host: "::",
+    port: 5003,
+    allowedHosts: ['aiagentsportal.inflectotechnologies.com'],
   },
 })
