@@ -1,7 +1,111 @@
-/* Font import */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@600&display=swap');
 
-html, body {
+
+
+
+
+
+
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ---------------------------------
+   Below styles are Vite leftovers
+   (Safe to keep or delete)
+   --------------------------------- */
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Font import */
+/* @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@600&display=swap'); */
+
+/* html, body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -13,17 +117,17 @@ html, body {
   background-attachment: fixed;
   background-color: #110027;
   color: #e0e0f0;
-}
+} */
 
 /* App wrapper */
-.app-wrapper {
+/* .app-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
+} */
 
 /* Header */
-.header {
+/* .header {
   background-color: rgba(0, 0, 0, 0.6);
   color: #E7E62A;
   padding: 1rem 2rem;
@@ -55,10 +159,10 @@ html, body {
 .header-right {
   display: flex;
   align-items: center;
-}
+} */
 
 /* Button */
-.inflecto-button {
+/* .inflecto-button {
   background-color: white;
   color: #E46356;
   padding: 8px 16px;
@@ -71,25 +175,25 @@ html, body {
 
 .inflecto-button:hover {
   background-color: #fff1ef;
-}
+} */
 
 /* Portal title */
-.portal-title {
+/* .portal-title {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 1rem;
   color: #00ffde;
-}
+} */
 
 /* Glow text (optional) */
-.glow {
+/* .glow {
   text-shadow: 0 0 5px #fff, 0 0 10px #B978B2, 0 0 20px #B978B2, 0 0 40px #70CBCF;
-}
+} */
 
 /* Agent grid layout */
-.agent-container {
+/* .agent-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
@@ -98,10 +202,10 @@ html, body {
   padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
-}
+} */
 
 /* Agent card styling */
-.agent-card {
+/* .agent-card {
   background-color: rgba(17, 0, 39, 0.85);
   border-radius: 1rem;
   padding: 1.5rem;
@@ -150,15 +254,15 @@ html, body {
   box-shadow: 0 0 5px #E46356;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
-}
+} */
 
-.agent-card a:hover {
+/* .agent-card a:hover {
   background-color: #ff6a3d;
   box-shadow: 0 0 10px #ff6a3d;
-}
+} */
 
 /* Footer */
-.footer {
+/* .footer {
   background-color: rgba(0, 0, 0, 0.7);
   color: #70CBCF;
   padding: 2rem;
@@ -181,10 +285,10 @@ html, body {
   align-items: flex-start;
   flex: 1;
   min-width: 250px;
-}
+} */
 
 /* Dubai icon brightness */
-.dubai-icon {
+/* .dubai-icon {
   width: 50px;
   height: auto;
   margin-top: 4px;
@@ -203,15 +307,15 @@ html, body {
 .footer-contact a {
   color: #70CBCF;
   text-decoration: none;
-}
+} */
 
-.footer-contact a:hover {
+/* .footer-contact a:hover {
   text-decoration: underline;
 }
 
 .footer-socials {
   /*margin-top: 0.5rem;*/
-  display: flex;
+  /* display: flex;
   justify-content: flex-end;
   gap: 1rem;
   margin-right: 3px;
@@ -225,26 +329,26 @@ html, body {
 
 .footer-socials i:hover {
   transform: scale(1.2);
-}
+} */
 
-.footer-bottom {
+/* .footer-bottom {
   text-align: center;
   margin-top: 2rem;
   font-size: 0.8rem;
-  color: #999;
-  /*border-top: 1px solid #333;*/
-  padding-top: 1rem;
-}
+  color: #999; 
+  border-top: 1px solid #333;*/
+  /* padding-top: 1rem;
+}  */
 
-
+/* 
 .tech-stack {
   margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-}
+} */
 
-.tech-tag {
+/* .tech-tag {
   background-color: #d0ff00;
   color: #000;
   font-size: 0.75rem;
@@ -252,9 +356,9 @@ html, body {
   padding: 4px 10px;
   border-radius: 20px;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-}
+} */
 
-.connect-title {
+/* .connect-title {
   font-size: 1.2rem;
   font-weight: bold;
   color: #70CBCF;
@@ -273,9 +377,9 @@ html, body {
   cursor: not-allowed;
 }
 
-/* Responsive tweaks */
+
 @media (max-width: 768px) {
   .portal-title {
     font-size: 2.2rem;
   }
-}
+} */
