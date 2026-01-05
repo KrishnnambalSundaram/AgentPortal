@@ -1,12 +1,18 @@
-# React + Vite
+## Tech Stack
+ Frontend Framework: React (Vite)
+ Routing: React Router v6
+ Styling: Tailwind CSS
+ Build Tool: Vite
+ Language: JavaScript (ES6+)
+ Package Manager: npm
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+## Recent Updates
+- Integrated React Router v6
+- Added MainLayout with sidebar navigation
+- Implemented Agents, Dashboard, and Notifications pages
+- Created reusable UI components (Buttons, cards, EmptyStatesCard, Header, Footer, Logo, VisitOurWebsite etc)
+- Cleaned routing structure and layout separation
+- Public routes (e.g. Home, Agent Onboarding) are rendered without sidebar
+- Application routes are wrapped inside a MainLayout that includes: Sidebar navigation, Shared layout styling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
