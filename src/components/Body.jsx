@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import InflectoExplore from '../assets/inflecto-explore.svg'
-import HeroBackground from '../assets/hero-background.svg'
-import InfoCard from './cards/InfoCard';
-import AgentCard from './cards/AgentCard';
-import axios from 'axios';
-import { getAgents } from '../services/AgentApi';
+import React, { useEffect, useState } from "react";
+import InflectoExplore from "../assets/inflecto-explore.svg";
+import HeroBackground from "../assets/hero-background.svg";
+import InfoCard from "./cards/InfoCard";
+import AgentCard from "./cards/AgentCard";
+import { getAgents } from "../services/AgentApi";
 // import imagebg from '../assets/background.jpg'
 // const agents = [
 //   {

@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { BsStars } from "react-icons/bs";
 import Frame from "../../assets/frame.svg";
 
 const COLORS = ["#F9F0F9", "#DBD7D2", "#E3FBFC", "#F3A7A066", "#FFFFE2"];
 const TEXTCOLORS = ["#5B2E59", "#6F522C", "#1F6A6C", "#973B32", "#6B6A00"];
 
-const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
+const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand = false }) => {
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false);
   const [isTruncated, setIsTruncated] = useState(false);
   const descRef = useRef(null);
@@ -28,7 +30,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
       className={`w-sm overflow-hidden rounded-[20px] shadow-lg border border-[#C7C7C7] p-4 bg-white cursor-pointer
                   ${
                     expanded
-                      ? "md:absolute z-50 max-h-[1000px] transition-all duration-1500 ease-in-out"
+                      ? `${disableAbsoluteExpand ? 'relative' : 'md:absolute'} z-50 max-h-[1000px] transition-all duration-1500 ease-in-out`
                       : "relative z-0 max-h-[225px] transition-all duration-300 ease-in-out"
                   } 
                   transition-all duration-300 ease-in-out overflow-hidden hover:scale-103 transform`}
@@ -121,14 +123,17 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
                 }`
           }`}
         >
-          <a
-            href={agent.url === null ? "" : agent.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              if (agent.url !== null && agent.id) {
+                navigate(`/agent/${agent.id}`, { state: { agent } });
+              }
+            }}
             className={`flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
               agent.url === null
                 ? "pointer-events-none text-[#333333]"
-                : "text-[#4B371C]"
+                : "text-[#4B371C] cursor-pointer"
             } text-center`}
           >
             <BsStars
@@ -137,7 +142,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand }) => {
               className="mr-2"
             />{" "}
             {agent.url === null ? "Coming Soon" : "Explore Agent"}
-          </a>
+          </div>
         </div>
       </div>
     </div>

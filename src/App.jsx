@@ -1,9 +1,10 @@
-import React from 'react';
-import './App.css';
-import Body from './components/Body.jsx';
-import Header from './components/Header.jsx';
-import Footer from './components/Footer.jsx';
-// import './index.css';
+import React from "react";
+import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Body from "./components/Body.jsx";
+import Header from "./components/Header.jsx";
+import Footer from "./components/Footer.jsx";
+import AgentPage from "./pages/AgentPage.jsx";
 
 // const agents = [
 //   {
@@ -34,9 +35,12 @@ import Footer from './components/Footer.jsx';
 function App() {
   return (
     <div className="min-h-screen">
-      <Header/>
-      <Body/>
-      <Footer/>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Body />} />
+        <Route path="/agent/:id" element={<AgentPage />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }
