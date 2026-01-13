@@ -17,7 +17,7 @@ const AgentPage = () => {
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(!state?.agent);
   const [expandedMoreAgent, setExpandedMoreAgent] = useState(null);
-
+console.log(agent)
   useEffect(() => {
     let active = true;
 
@@ -74,7 +74,7 @@ const AgentPage = () => {
       </main>
     );
   }
-
+console.log(agent)
   if (!agent) {
     return (
       <main className="flex w-full items-center justify-center py-24 px-4">
@@ -114,11 +114,12 @@ const AgentPage = () => {
 
           <div className="overflow-hidden rounded-[28px]">
             <iframe
-              src="https://drive.google.com/file/d/19pI5spyB39VAQ7hToIo_vDwfapJLUnj-/preview"
+              src={agent.video_url}
               className="w-full aspect-video"
-              allow="autoplay"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
               title="Agent Demo Video"
+              loading="lazy"
             />
           </div>
         </div>

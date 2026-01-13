@@ -114,7 +114,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
       <div className={` ${isTruncated?"mt-6":"mt-6"}`}>
         <div
           className={`w-full rounded-2xl p-[1px] ${
-            agent.url === null
+            agent.video_url === null
               ? "bg-[#F2F2F2]"
               : `hover:scale-102 ${
                   hovered
@@ -126,12 +126,12 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
           <div
             onClick={(e) => {
               e.stopPropagation();
-              if (agent.url !== null && agent.id) {
+              if (agent.video_url !== null && agent.id) {
                 navigate(`/agent/${agent.id}`, { state: { agent } });
               }
             }}
             className={`flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
-              agent.url === null
+              agent.video_url === null
                 ? "pointer-events-none text-[#333333]"
                 : "text-[#4B371C] cursor-pointer"
             } text-center`}
@@ -141,7 +141,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
               color={hovered ? "black" : "#4B371C"}
               className="mr-2"
             />{" "}
-            {agent.url === null ? "Coming Soon" : "Explore Agent"}
+            {agent.video_url === null ? "Coming Soon" : "Explore Agent"}
           </div>
         </div>
       </div>
