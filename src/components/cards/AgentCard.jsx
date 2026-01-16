@@ -82,7 +82,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
             expanded ? "" : "line-clamp-3"
           }`}
         >
-          {agent.capability}
+          {agent.description}
         </p>
 
         {!expanded && isTruncated && (

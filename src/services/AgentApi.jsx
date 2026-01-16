@@ -2,7 +2,7 @@ import { BASE_URL } from "../utils/commons";
 
 export async function getAgents() {
   try {
-    const response = await fetch(`${BASE_URL}/api/ai-agents`, {
+    const response = await fetch(`${BASE_URL}/api/ai-agents?excludeUrl=true`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

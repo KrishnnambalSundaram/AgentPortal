@@ -50,3 +50,22 @@
   font-weight: 700;
   font-style: normal;
 }
+/* Marquee animation for tech stack badges */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-stack-marquee {
+  display: flex;
+  gap: 0.5rem;
+  animation: marquee 15s linear infinite;
+}
+
+.tech-stack-marquee:hover {
+  animation-play-state: paused;
+}
