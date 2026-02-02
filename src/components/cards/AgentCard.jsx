@@ -4,7 +4,7 @@ import { BsStars } from "react-icons/bs";
 import Frame from "../../assets/frame.svg";
 
 const COLORS = ["#F9F0F9", "#DBD7D2", "#E3FBFC", "#F3A7A066", "#FFFFE2"];
-const TEXTCOLORS = ["#5B2E59", "#6F522C", "#1F6A6C", "#973B32", "#6B6A00"];
+const TEXTCOLORS = ["#5B2E59", "#6F522C", "#1F6A6C", "#ffffff", "#6B6A00"];
 
 const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand = false }) => {
   const navigate = useNavigate();
@@ -27,7 +27,8 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
       onMouseLeave={() => {
         setHovered(false);
       }}
-      className={`w-sm overflow-hidden rounded-[20px] shadow-lg border border-[#C7C7C7] p-4 bg-white cursor-pointer
+      className={`group w-sm hover:translate-y-[-10px] duration-300 ease-in transition-all overflow-hidden rounded-[20px] border border-neutral-700/30 m-1
+                  hover:bg-gradient-to-r from-black/30 to-zinc-800 hover:shadow-neutral-400/30 shadow-md
                   ${
                     expanded
                       ? `${disableAbsoluteExpand ? 'relative' : 'md:absolute'} z-50 max-h-[1000px] transition-all duration-1500 ease-in-out`
@@ -41,10 +42,11 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
       //   backgroundSize: "150px 150px",
       // }}
     >
+      <div className="relative inset-0 p-4 rounded-2xl w-full h-full">
       {/* Title */}
       <h2
-        className={`text-lg manrope-medium text-gray-900 ${
-          expanded ? "" : "truncate"
+        className={`text-lg manrope-medium text-white group-hover:text-shadow-lg transition-all duration-300 ease-in-out ${
+          expanded ? "" : "truncate group-hover:text-shadow-lg transition-all duration-300 ease-in-out"
         }`}
       >
         {agent.name}
@@ -78,7 +80,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
       <div className="min-h-16">
         <p
           ref={descRef}
-          className={`mt-2 text-sm text-[#565656] outfit-regular ${
+          className={`mt-2 text-sm text-gray-300 outfit-regular ${
             expanded ? "" : "line-clamp-3"
           }`}
         >
@@ -91,7 +93,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
               e.stopPropagation();
               onExpand()
             }}
-            className="absolute mb-1 text-[#C94D40] text-xs outfit-regular"
+            className="absolute mb-1 text-[#70CBCF] hover:text-[#B978B2] text-xs outfit-regular transition"
           >
             Read more
           </button>
@@ -103,7 +105,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
               e.stopPropagation();
               onExpand()
             }}
-            className="absolute mb-1 text-[#C94D40] text-xs outfit-regular"
+            className="absolute mb-1 text-[#70CBCF] hover:text-[#B978B2] text-xs outfit-regular transition"
           >
             Read less
           </button>
@@ -113,15 +115,15 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
       {/* Bottom Button */}
       <div className={` ${isTruncated?"mt-6":"mt-6"}`}>
         <div
-          className={`w-full rounded-2xl p-[1px] ${
+          className={`w-full rounded-xl ${
             agent.video_url === null
-              ? "bg-[#F2F2F2]"
-              : `hover:scale-102 ${
+              ? "bg-gray-800/50 border border-gray-700"
+              : `${
                   hovered
-                    ? "border-0 bg-[linear-gradient(105.83deg,rgba(231,230,42,0.32)_0%,rgba(185,100,178,0.32)_31.73%,rgba(112,203,207,0.32)_61.54%,rgba(228,99,86,0.32)_89.9%)]"
-                    : "border border-[#4B371C]"
+                    ? "border-0 bg-gradient-to-r from-zinc-800 to-black/30 hover:bg-gradient-to-r hover:from-black/30 hover:to-zinc-800 hover:shadow-neutral-400/30 hover:shadow-md hover:scale-102 transition-all duration-300 ease-in-out"
+                    : "border border-white/30"
                 }`
-          }`}
+          } transition-all`}
         >
           <div
             onClick={(e) => {
@@ -130,20 +132,23 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
                 navigate(`/agent/${agent.id}`, { state: { agent } });
               }
             }}
-            className={`flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
+            className={`group flex flex-row items-center justify-center w-full rounded-2xl py-2 text-sm outfit-medium ${
               agent.video_url === null
-                ? "pointer-events-none text-[#333333]"
-                : "text-[#4B371C] cursor-pointer"
-            } text-center`}
+                ? "pointer-events-none text-gray-600"
+                : hovered
+                ? "text-white cursor-pointer font-semibold"
+                : "text-white cursor-pointer"
+            } text-center transition-all`}
           >
             <BsStars
               size={16}
-              color={hovered ? "black" : "#4B371C"}
-              className="mr-2"
+              color={agent.video_url === null ? "#666" : "white"}
+              className="mr-2 group-hover:animate-pulse"
             />{" "}
             {agent.video_url === null ? "Coming Soon" : "Explore Agent"}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

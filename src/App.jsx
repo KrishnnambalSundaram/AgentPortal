@@ -5,6 +5,12 @@ import Body from "./components/Body.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import AgentPage from "./pages/AgentPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/RegisterPage.jsx";
+import VerifyPage from "./pages/VerifyPage.jsx";
+import { AuthProvider } from "./context/AuthContext";
+import RouteChangeTracker from "./components/RouteChangeTracker.jsx";
+import CookieConsent from "./components/CookieConsent.jsx";
 
 // const agents = [
 //   {
@@ -34,14 +40,34 @@ import AgentPage from "./pages/AgentPage.jsx";
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Body />} />
-        <Route path="/agent/:id" element={<AgentPage />} />
-      </Routes>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <RouteChangeTracker />
+      <CookieConsent />
+      <div className="min-h-screen overflow-hidden">
+        <Routes>
+          {/* Main pages with header and footer */}
+          <Route path="/" element={
+            <>
+              <Header />
+              <Body />
+              <Footer />
+            </>
+          } />
+          <Route path="/agent/:id" element={
+            <>
+              <Header />
+              <AgentPage />
+              <Footer />
+            </>
+          } />
+          
+          {/* Auth pages without header/footer */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/verify" element={<VerifyPage />} />
+        </Routes>
+      </div>
+    </AuthProvider>
   );
 }
 
