@@ -82,7 +82,7 @@ const AgentPage = () => {
     if (!agent) return;
 
     // Each element animates only when it enters viewport
-    
+
     // Video container
     gsap.from("#video-container", {
       scrollTrigger: {
@@ -259,7 +259,7 @@ const AgentPage = () => {
                 <IoChevronBack size={16} />
                 Browse all agents
               </button>
-              
+
               {agent.url !== null && (
                 <>
                   {/* Inflecto Employee - Direct Access */}
@@ -273,7 +273,6 @@ const AgentPage = () => {
                       flairOpacity={0.5}
                       flairSize={128}
                     >
-                      <BsStars size={16} />
                       Go to Agent
                     </FlairButton>
                   ) : (

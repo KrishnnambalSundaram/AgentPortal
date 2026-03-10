@@ -28,7 +28,7 @@ const AgentCard = ({ agent, cardIndex, expanded, onExpand, disableAbsoluteExpand
         setHovered(false);
       }}
       className={`group w-sm hover:translate-y-[-10px] duration-300 ease-in transition-all overflow-hidden rounded-[20px] border border-neutral-700/30 m-1
-                  hover:bg-gradient-to-r from-black to-zinc-800 hover:shadow-neutral-400/30 shadow-md
+                  bg-black hover:bg-gradient-to-r from-black to-zinc-800 hover:shadow-neutral-400/30 shadow-md
                   ${expanded
           ? `${disableAbsoluteExpand ? 'relative' : 'md:absolute'} z-50 max-h-[1000px] transition-all duration-1500 ease-in-out`
           : "relative z-0 max-h-[225px] transition-all duration-300 ease-in-out"
