@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useAuth } from "../context/AuthContext";
 import { trackAgentAccessRequest } from "../utils/analytics";
+import { BASE_URL } from "../utils/commons";
 
 const AgentAccessModal = ({ isOpen, onClose, agentId, agentName }) => {
   const { user } = useAuth();
